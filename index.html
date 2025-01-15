@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ibisPaint Artwork Animation Generator</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="A tool to generate .ipv (ibisPaint Artwork Animation) files with custom resolution">
+</head>
+
+<body>
+    <div class="content">
+        <img src="logo.png" alt="Free Animation X Logo">
+        <h1>Generate Animation Files with Custom Resolution</h1>
+        <p>This is a tool that creates an .ipv animation file with a custom resolution, which can be loaded and edited in <a href="https://ibispaint.com/">ibisPaint and ibisPaint X</a> without the use of the prime membership </p>
+        <h2>Chose a preset</h2>
+        <div class="presets">
+            <button class="preset inputable" onclick="setResolution(768,768)"><span class="darktext">1 : 1 (LD)</span><span class="darktext">768 x 768</span></button>
+            <button class="preset inputable" onclick="setResolution(1280,1280)"><span class="darktext">1 : 1 (SD)</span><span class="darktext">1280 x 1280</span></button>
+            <button class="preset inputable" onclick="setResolution(1024,768)"><span class="darktext">4 : 3 (SD)</span><span class="darktext">1024 x 768</span></button>
+            <button class="preset inputable" onclick="setResolution(1280,960)"><span class="darktext">4 : 3 (HD)</span><span class="darktext">1280 x 960</span></button>
+            <button class="preset inputable" onclick="setResolution(1280,720)"><span class="darktext">16 : 9 (SD)</span><span class="darktext">1280 x 720</span></button>
+            <button class="preset inputable" onclick="setResolution(1920,1080)"><span class="darktext">16 : 9 (2K)</span><span class="darktext">1920 x 1080</span></button>
+        </div>
+        <h2>Specify resolution</h2>
+        <div class="customres">
+            <input type="number" name="width" id="widthinput" value="1920" class="darktext inputable" size="1">
+            <span>X</span>
+            <input type="number" name="height" id="heightinput" value="1080" class="darktext inputable" size="1">
+        </div>
+
+        <div style="margin: 1em;"></div>
+
+        <button id="generate" onclick="gen()">
+            <div class="icon">
+                <img src="downloadicon.svg" alt="Generate and Download .ipv">
+            </div>
+            <span>Generate and Download .ipv</span>
+        </button>
+
+
+        <div style="margin: 1em;"></div>
+
+        <script src="filecreator.js"></script>
+    </div>
+</body>
+
+</html>
