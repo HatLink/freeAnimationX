@@ -10,6 +10,9 @@ function setResolution(w, h) {
 }
 
 async function gen() {
+    // Custom res isn't handled by setResolution()
+    width = document.getElementById("widthinput").value;
+    height = document.getElementById("heightinput").value;
     let widthBytes = new Uint8Array([
         (width >> 24) & 0xff,
         (width >> 16) & 0xff,
