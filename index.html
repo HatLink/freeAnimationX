@@ -13,7 +13,9 @@
     <div class="content">
         <img src="logo.png" alt="Free Animation X Logo">
         <h1>Generate Animation Files with Custom Resolution</h1>
-        <p>This is a tool that creates an .ipv animation file with a custom resolution, which can be loaded and edited in <a href="https://ibispaint.com/">ibisPaint and ibisPaint X</a> without the use of the prime membership </p>
+        <p>This is a tool that creates an .ipv animation file with a custom resolution, which can be opened and edited in <a href="https://ibispaint.com/">ibisPaint and ibisPaint X</a> without the use of the prime membership </p>
+        <p>Resolutions abover 1080p may fail to be playable, exportable, uploadable, or editable on some devices</p>
+        <p>Checkout the <a href="https://github.com/HatLink/reeng-ibispaint">file format reverse engineering project</a> to figure out how this format works and if you have issues with this tool post them <a href="https://github.com/HatLink/freeAnimationX/issues/new">here</a></p>
         <h2>Chose a preset</h2>
         <div class="presets">
             <button class="preset inputable" onclick="setResolution(768,768)"><span class="darktext">1 : 1 (LD)</span><span class="darktext">768 x 768</span></button>
@@ -39,11 +41,18 @@
             <span>Generate and Download .ipv</span>
         </button>
 
-
         <div style="margin: 1em;"></div>
+        <p>If the app prompts to restore the artwork file by playback: It will not work, Cancel instead</p>
 
-        <script src="filecreator.js"></script>
+
     </div>
+    <div class="secondary">
+        <p>video2ipv coming soon</p>
+        <p><a href="https://github.com/HatLink/freeAnimationX">Github</a></p>
+        <p>This website is not affiliated with ibisPaint or ibis inc.</p>
+        <div style="margin: 1em;"></div>
+    </div>
+    <script src="filecreator.js"></script>
 </body>
 
 </html>

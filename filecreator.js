@@ -9,6 +9,15 @@ function setResolution(w, h) {
     document.getElementById("heightinput").value = height
 }
 
+function randomID(length) {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let result = "";
+    for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+}
+
 async function gen() {
     let widthBytes = new Uint8Array([
         (width >> 24) & 0xff,
@@ -40,17 +49,26 @@ async function gen() {
     console.log("got indicies " + indices);
 
     indices.forEach(index => {
-        uint8Array.set(heightBytes, index);
-        uint8Array.set(widthBytes, index + 4);
+        uint8Array.set(widthBytes, index);
+        uint8Array.set(heightBytes, index + 4);
         console.log("patched index " + index)
     });
+
+    let randStr = randomID(10);
+    console.log("random string:", randStr);
+
+    for (let i = 0; i < randStr.length; i++) {
+        uint8Array[0x1A + i] = randStr.charCodeAt(i);
+    }
+
+    console.log("patched random string at 0x1A");
 
     console.log("create blob and download")
     const blob = new Blob([uint8Array], { type: 'application/octet-stream' });
     const link = document.createElement('a');
     link.style.display = 'none';
     link.href = URL.createObjectURL(blob);
-    link.download = 'patched.ipv';
+    link.download = 'patched' + randStr + '.ipv';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
